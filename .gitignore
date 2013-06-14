@@ -15,7 +15,6 @@ INSTALLED_FILES
 *.sqlite
 *.db*
 
-
 # OS generated files #
 ######################
 *.pyc
@@ -25,5 +24,4 @@ Icon?
 Thumbs.db
 *.pid
 ._.*
-
 *pack_distribution.dat
