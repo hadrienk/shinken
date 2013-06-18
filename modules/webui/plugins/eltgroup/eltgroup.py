@@ -47,6 +47,60 @@ def get_page(arg1='nothing'):
     # user we are logged with (it's a contact object in fact)
     return {'app': app, 'user': user, 'host': my_host}
 
+def show_hostgroup_overview(arg1='nothing'):
+    # First we look for the user sid
+    # so we bail out if it's a false one
+    user = app.get_user_auth()
+
+    if not user:
+        redirect("/user/login")
+        return
+
+    # Here we can call app.datamgr because when the webui "loaded" us, it
+    # populate app with it's own value.
+    my_host = app.datamgr.get_host(arg1)
+
+    # we return values for the template (view). But beware, theses values are the
+    # only one the template will have, so we must give it an app link and the
+    # user we are logged with (it's a contact object in fact)
+    return {'app': app, 'user': user, 'host': my_host}
+
+def show_hostgroup(arg1='nothing'):
+    # First we look for the user sid
+    # so we bail out if it's a false one
+    user = app.get_user_auth()
+
+    if not user:
+        redirect("/user/login")
+        return
+
+    # Here we can call app.datamgr because when the webui "loaded" us, it
+    # populate app with it's own value.
+    my_host = app.datamgr.get_host(arg1)
+
+    # we return values for the template (view). But beware, theses values are the
+    # only one the template will have, so we must give it an app link and the
+    # user we are logged with (it's a contact object in fact)
+    return {'app': app, 'user': user, 'host': my_host}
+
+def show_servicegroup(arg1='nothing'):
+    # First we look for the user sid
+    # so we bail out if it's a false one
+    user = app.get_user_auth()
+
+    if not user:
+        redirect("/user/login")
+        return
+
+    # Here we can call app.datamgr because when the webui "loaded" us, it
+    # populate app with it's own value.
+    my_host = app.datamgr.get_host(arg1)
+
+    # we return values for the template (view). But beware, theses values are the
+    # only one the template will have, so we must give it an app link and the
+    # user we are logged with (it's a contact object in fact)
+    return {'app': app, 'user': user, 'host': my_host}
+
 # This is the dict the webui will try to "load".
 #  *here we register one page with both addresses /dummy/:arg1 and /dummy/, both addresses
 #   will call the function get_page.
@@ -55,4 +109,7 @@ def get_page(arg1='nothing'):
 #    the dummy/htdocs/ directory. Beware: it will take the plugin name to match.
 #  * optional: you can add 'method': 'POST' so this address will be only available for
 #    POST calls. By default it's GET. Look at the lookup module for sample about this.
-pages = {get_page: {'routes': ['/eltgroup/:arg1', '/eltgroup/'], 'view': 'eltgroup', 'static': True}}
+pages = {show_hostgroup_overview: {'routes': ['/hostgroup'], 'view': 'eltgroupoverview', 'static': True},
+         show_hostgroup: {'routes': ['/hostgroup/:arg1'], 'view': 'eltgroup', 'static': True},
+         show_servicegroup: {'routes': ['/servicegroup/:hname/:desc#.+#'], 'view': 'eltgroup', 'static': True},
+         }
