@@ -764,7 +764,7 @@ $(document).ready(function(){
 			});
 			</script>
 
-			<div class="tab-pane" id="depgraph">
+			<div class="tab-pane" id="depgraph" class="span12">
 				<div>
 					<ul class="nav nav-pills">
 						<li class="active"><a id="fullscreen-request" href="#"><i class="icon-plus"></i> Fullscreen</a></li></i>
