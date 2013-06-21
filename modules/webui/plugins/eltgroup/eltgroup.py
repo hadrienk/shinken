@@ -110,6 +110,6 @@ def show_servicegroup(arg1='nothing'):
 #  * optional: you can add 'method': 'POST' so this address will be only available for
 #    POST calls. By default it's GET. Look at the lookup module for sample about this.
 pages = {show_hostgroup_overview: {'routes': ['/hostgroup'], 'view': 'eltgroupoverview', 'static': True},
-         show_hostgroup: {'routes': ['/hostgroup/:arg1'], 'view': 'eltgroup', 'static': True},
+         show_hostgroup: {'routes': ['/hostgroup/:arg1'], 'view': 'eltgroupdetail', 'static': True},
          show_servicegroup: {'routes': ['/servicegroup/:hname/:desc#.+#'], 'view': 'eltgroup', 'static': True},
          }
