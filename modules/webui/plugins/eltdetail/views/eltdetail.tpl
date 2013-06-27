@@ -95,8 +95,8 @@ $(document).ready(function(){
 					<button class="btn btn-mini"><i class="icon-cog"></i> Actions</button>
 					%end
 					<button class="btn btn-mini dropdown-toggle" data-toggle="dropdown">
-				 		<span class="caret"></span>
-				 	</button>
+						<span class="caret"></span>
+					</button>
 					<ul class="dropdown-menu pull-right">
 						%action_urls = elt.action_url.split('|')
 						%if len(action_urls) > 0:
@@ -115,92 +115,112 @@ $(document).ready(function(){
 			    </div>
 			</div>	
 		%else:
-			<div class="span5">
-			  	<span class="pull-right leftmargin" id="host_tags">
-					%tags = elt.get_host_tags()
-					%for t in tags:
-					<script>add_tag_image('/static/images/sets/{{t.lower()}}/tag.png','{{t}}');</script>
-					%end
-				</span>
-			</div>
+		    	<div class="span5">
+		    		<span class="pull-right leftmargin" id="host_tags">
+		    			%tags = elt.get_host_tags()
+		    			%for t in tags:
+		    			<script>add_tag_image('/static/images/sets/{{t.lower()}}/tag.png','{{t}}');</script>
+		    			%end
+		    		</span>
+		    	</div>
 		%end	
-  	</div>
-
-	<div class="row-fluid box">	   
-		<table class="span4">
-			%#Alias, apretns and hostgroups arefor host only
-			%if elt_type=='host':
-			<tr>
-				<td>Alias:</td>
-				<td>{{elt.alias}}</td>
-			</tr>
-			<tr>
-				<td>Address:</td>
-				<td>{{elt.address}}</td>
-			</tr>
-			<tr>
-				<td>Importance:</td>
-				<td>{{!helper.get_business_impact_text(elt)}}</td>
-			</tr>
-		</table>
-		
-		<table class="span3">
-			<tr>
-				<td>Parents:</td>
-				%if len(elt.parents) > 0:
-				<td>{{','.join([h.get_name() for h in elt.parents])}}</td>
-				%else:
-				<td>No parents</td>
-				%end
-			</tr>
-			<tr>
-				<td>Members of:</td>
-				%if len(elt.hostgroups) > 0:
-				<td>{{','.join([hg.get_name() for hg in elt.hostgroups])}}</td>
-				%else:
-				<td> No groups </td>
-				%end
-			</tr>
-			%# End of the host only case, so now service
-			%else:
-			<tr>
-				<td>Host:</td>
-				<td><a href="/host/{{elt.host.host_name}}" class="link">{{elt.host.host_name}}</a></td>
-			</tr>
-			<tr>
-				<td>Members of:</td>
-				%if len(elt.servicegroups) > 0:
-				<td>{{','.join([sg.get_name() for sg in elt.servicegroups])}}</td>
-				%else:
-				<td> No groups </td>
-				%end
-			</tr>
-			%end
-			<tr>
-				<td>Notes: </td>
-				%if elt.notes != '' and elt.notes_url != '':
-				<td><a href="{{elt.notes_url}}" target=_blank>{{elt.notes}}</a></td>
-				%elif elt.notes == '' and elt.notes_url != '':
-				<td><a href="{{elt.notes_url}}" target=_blank>{{elt.notes_url}}</a></td>
-				%elif elt.notes != '' and elt.notes_url == '':
-				<td>{{elt.notes}}</td>
-				%else:
-				<td>(none)</td>
-				%end
-			</tr>
-		</table>	    
-
-		<div class="span4">
-		      	%#   " If the elements is a root problem with a huge impact and not ack, ask to ack it!"
-		      	%if elt.is_problem and elt.business_impact > 2 and not elt.problem_has_been_acknowledged:
-		      	<div class="alert alert-critical no-bottommargin pulsate row-fluid">
-		      		<div class="span2 font-white" style="font-size: 50px; padding-top: 10px;"> <i class="icon-bolt"></i> </div>
-		      		<p class="span10 font-white">This element has got an important impact on your business, please <b>fix it</b> or <b>acknowledge it</b>.</p>
-		      		%# "end of the 'SOLVE THIS' highlight box"
-		      		%end
-		      	</div>
-		</div>				
 	</div>
+
+	<div class="accordion" id="fitted-accordion">
+		<div class="fitted-box overall-summary accordion-group">
+			<div class="accordion-heading">
+				<a class="accordion-toggle" data-toggle="collapse" data-parent="#fitted-accordion" href="#collapseOne">
+					Overview (alias)
+				</a>
+			</div>
+		<div id="collapseOne" class="accordion-body collapse in">
+
+			<div class="row-fluid fitted-bar ">
+							<table class="span4 leftmargin">
+				%#Alias, apretns and hostgroups arefor host only
+				%if elt_type=='host':
+				<tr>
+					<td>Alias:</td>
+					<td>{{elt.alias}}</td>
+				</tr>
+				<tr>
+					<td>Address:</td>
+					<td>{{elt.address}}</td>
+				</tr>
+				<tr>
+					<td>Importance:</td>
+					<td>{{!helper.get_business_impact_text(elt)}}</td>
+				</tr>
+			</table>
+			
+			<table class="span3">
+				<tr>
+					<td>Parents:</td>
+					%if len(elt.parents) > 0:
+					<td>{{','.join([h.get_name() for h in elt.parents])}}</td>
+					%else:
+					<td>No parents</td>
+					%end
+				</tr>
+				<tr>
+					<td>Members of:</td>
+					%if len(elt.hostgroups) > 0:
+					<td>{{','.join([hg.get_name() for hg in elt.hostgroups])}}</td>
+					%else:
+					<td> No groups </td>
+					%end
+				</tr>
+				%# End of the host only case, so now service
+				%else:
+				<tr>
+					<td>Host:</td>
+					<td><a href="/host/{{elt.host.host_name}}" class="link">{{elt.host.host_name}}</a></td>
+				</tr>
+				<tr>
+					<td>Members of:</td>
+					%if len(elt.servicegroups) > 0:
+					<td>{{','.join([sg.get_name() for sg in elt.servicegroups])}}</td>
+					%else:
+					<td> No groups </td>
+					%end
+				</tr>
+				%end
+				<tr>
+					<td>Notes: </td>
+					%if elt.notes != '' and elt.notes_url != '':
+					<td><a href="{{elt.notes_url}}" target=_blank>{{elt.notes}}</a></td>
+					%elif elt.notes == '' and elt.notes_url != '':
+					<td><a href="{{elt.notes_url}}" target=_blank>{{elt.notes_url}}</a></td>
+					%elif elt.notes != '' and elt.notes_url == '':
+					<td>{{elt.notes}}</td>
+					%else:
+					<td>(none)</td>
+					%end
+				</tr>
+			</table>
+				<div class="span4">
+					%#   " If the elements is a root problem with a huge impact and not ack, ask to ack it!"
+					%if elt.is_problem and elt.business_impact > 2 and not elt.problem_has_been_acknowledged:
+					<div class="alert alert-critical no-bottommargin pulsate row-fluid leftmargin">
+						<div class="span2 font-white" style="font-size: 50px; padding-top: 10px;"> <i class="icon-bolt"></i> </div>
+						<p class="span10 font-white">This element has got an important impact on your business, please <b>fix it</b> or <b>acknowledge it</b>.</p>
+						%# "end of the 'SOLVE THIS' highlight box"
+						%end
+					</div>
+				</div>
+			</div>
+			<div class="accordion-inner">
+				<ul>
+					<li class="span3"><span class="num">35</span> Up</li>
+					<li class="span3"><span class="num">10</span> Down</li>
+					<li class="span3"><span class="num">23</span> Unreachable</li>
+					<li class="span3"><span class="num">10</span> Pending</li>
+				</ul>
+			</div>
+		</div>
+        </div>
+    </div>	
+
 
 	<!-- Switch Start -->
 
