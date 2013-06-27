@@ -5,10 +5,10 @@
 </div>
 
 <div class="row-fluid">
-	<div class="accordion" id="accordion2">
+	<div class="accordion" id="fitted-accordion">
 		<div class="fitted-box overall-summary accordion-group">
 			<div class="accordion-heading">
-				<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+				<a class="accordion-toggle" data-toggle="collapse" data-parent="#fitted-accordion" href="#collapseOne">
 					Overview (alias)
 				</a>
 			</div>
@@ -32,6 +32,7 @@
 			</div>
 		</div>
     </div>
+    
 	<div>
 		<div class="clearfix">
 			<table class="table table-hover">
