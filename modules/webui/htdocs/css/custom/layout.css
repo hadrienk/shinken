@@ -89,12 +89,20 @@ html, body {height: 95.5%;}
   margin-bottom: 20px;
 }
 
+.fitted-link {
+  color: #787878;
+  font-size: 12px;
+  font-weight: bold;
+  background: #F7F7F7 !important;
+  border-bottom: 1px solid #DDDDDD;
+  line-height: 100%;
+  margin: 0;
+  padding: 10px;  
+}
 .fitted-box a {
   color: #787878;
   font-size: 12px;
   font-weight: bold;
-  background: #F7F7F7;
-  border-bottom: 1px solid #DDDDDD;
   line-height: 100%;
   margin: 0;
   padding: 10px;

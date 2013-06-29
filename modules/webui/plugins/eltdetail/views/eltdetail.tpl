@@ -115,28 +115,34 @@ $(document).ready(function(){
 			    </div>
 			</div>	
 		%else:
-		    	<div class="span5">
-		    		<span class="pull-right leftmargin" id="host_tags">
-		    			%tags = elt.get_host_tags()
-		    			%for t in tags:
-		    			<script>add_tag_image('/static/images/sets/{{t.lower()}}/tag.png','{{t}}');</script>
-		    			%end
-		    		</span>
-		    	</div>
+		    <div class="span5">
+		   		<span class="pull-right leftmargin" id="host_tags">
+		   			%tags = elt.get_host_tags()
+		   			%for t in tags:
+		    		<script>add_tag_image('/static/images/sets/{{t.lower()}}/tag.png','{{t}}');</script>
+		    		%end
+		    	</span>
+		    </div>
 		%end	
 	</div>
 
 	<div class="accordion" id="fitted-accordion">
 		<div class="fitted-box overall-summary accordion-group">
 			<div class="accordion-heading">
-				<a class="accordion-toggle" data-toggle="collapse" data-parent="#fitted-accordion" href="#collapseOne">
-					Overview (alias)
+				%if elt_type=='host':
+				<a class="accordion-toggle fitted-link" data-toggle="collapse" data-parent="#fitted-accordion" href="#collapseOne">
+					Overview ({{elt.alias}})
 				</a>
+				%else:
+				<a class="accordion-toggle fitted-link" data-toggle="collapse" data-parent="#fitted-accordion" href="#collapseOne">
+					Overview
+				</a>
+				%end
 			</div>
 			<div id="collapseOne" class="accordion-body collapse in">
 				<div class="row-fluid fitted-bar ">
 					<table class="span4 leftmargin">
-						%#Alias, apretns and hostgroups arefor host only
+						%#Alias, apretns and hostgroups are for host only
 						%if elt_type=='host':
 						<tr>
 							<td>Alias:</td>
@@ -208,7 +214,8 @@ $(document).ready(function(){
 						</div>
 					</div>
 				</div>
-				<div class="accordion-inner">
+				%if elt_type=='host':
+				<div>
 					<ul>
 						<li class="span3"><span class="num">35</span> Up</li>
 						<li class="span3"><span class="num">10</span> Down</li>
@@ -216,6 +223,7 @@ $(document).ready(function(){
 						<li class="span3"><span class="num">10</span> Pending</li>
 					</ul>
 				</div>
+				%end
 			</div>
 	    </div>
 	</div>	
