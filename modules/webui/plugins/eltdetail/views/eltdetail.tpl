@@ -215,12 +215,12 @@ $(document).ready(function(){
 					</div>
 				</div>
 				%if elt_type=='host':
-				<div>
+				<div class="row-fluid">
 					<ul>
-						<li class="span3"><span class="num">35</span> Up</li>
-						<li class="span3"><span class="num">10</span> Down</li>
-						<li class="span3"><span class="num">23</span> Unreachable</li>
-						<li class="span3"><span class="num">10</span> Pending</li>
+						<li class="span3"> <span class="icon-stack font-green"> <i class="icon-circle-blank icon-stack-base"></i> <i class="icon-arrow-up"></i></span> <span class="num">35</span> Up</li>
+						<li class="span3"> <span class="icon-stack font-red"> <i class="icon-circle-blank icon-stack-base"></i> <i class="icon-arrow-down"></i></span> <span class="num">10</span> Down</li>
+						<li class="span3"> <span class="icon-stack font-orange"> <i class="icon-circle-blank icon-stack-base"></i> <i class="icon-question"></i></span> <span class="num">23</span> Unreachable</li>
+						<li class="span3"> <span class="icon-stack"> <i class="icon-circle-blank icon-stack-base"></i> <i class="icon-spinner"></i></span> <span class="num">10</span> Pending</li>
 					</ul>
 				</div>
 				%end

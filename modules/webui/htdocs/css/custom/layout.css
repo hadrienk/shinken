@@ -116,6 +116,12 @@ html, body {height: 95.5%;}
   text-decoration: none;
 }
 
+.fitted-box ul {
+  min-height: 25px;
+  margin: 3px 15px;
+  font-size: 13px;
+}
+
 .fitted-box li {
   display: inline;
   list-style-type: none;
