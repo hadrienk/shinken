@@ -39,51 +39,29 @@ html, body {height: 95.5%;}
 
 /*  Special Font Awesome styles (Font Color)
     ------------------------------------------------------- */
-.font-white {
-  color: #FFFFFF;
-}
+.font-white {color: #FFFFFF;}
 
-.font-black {
-  color: #000000;
-}
+.font-black {color: #000000;}
 
-.font-green {
-  color: #468847;
-}
+.font-green {color: #468847;}
 
-.font-yellow {
-  color: #FFEE00;
-}
+.font-yellow {color: #FFEE00;}
 
-.font-orange {
-  color: #F89406;
-}
+.font-orange {color: #F89406;}
 
-.font-red {
-  color: #DA4F49;
-}
+.font-red {color: #DA4F49;}
 
-.font-green {
-  color: #51A351;
-}
+.font-green {color: #51A351;}
 
-.font-grey {
-  color: #505050;
-}
+.font-grey {color: #505050;}
 
-.font-lightgrey {
-  color: #EBEBEB;
-}
+.font-lightgrey {color: #EBEBEB;}
 
-.font-darkgrey {
-  color: #535456;
-}
+.font-darkgrey {color: #535456;}
 
-.font-blue {
-  color: #3A87AD;
-}
+.font-blue {color: #3A87AD;}
 
-/*  Special Shinken Buttons
+/*  Special Shinken Box
     ------------------------------------------------------- */
 .fitted-box {
   -moz-box-sizing: border-box;
