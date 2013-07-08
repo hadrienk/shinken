@@ -90,9 +90,9 @@
         %if app:
         %overall_state = app.datamgr.get_overall_state()
         %if overall_state == 2:
-        <li><a href="/impacts" class="quickinfo" data-original-title='Impacts'><i class="icon-impact"></i><span class="pulsate badger badger-critical">{{app.datamgr.get_len_overall_state()}}</span> </a></li>
+        <li><a href="/impacts" class="quickinfo" data-original-title='Impacts'> <span class="icon-stack font-red"><i class="icon-check-empty icon-stack-base"></i> <i class="icon-bolt"></i> </span> <span class="pulsate badger badger-critical">{{app.datamgr.get_len_overall_state()}}</span> </a></li>
         %elif overall_state == 1:
-        <li><a href="/impacts" class="quickinfo" data-original-title='Impacts'><i class="icon-impact"></i><span class="pulsate badger badger-warning">{{app.datamgr.get_len_overall_state()}}</span> </a></li>
+        <li><a href="/impacts" class="quickinfo" data-original-title='Impacts'><span class="icon-stack font-orange"><i class="icon-check-empty icon-stack-base"></i> <i class="icon-bolt"></i> </span> <span class="pulsate badger badger-warning">{{app.datamgr.get_len_overall_state()}}</span> </a></li>
         %end
         %end
         <!-- <li><a href="#" class="quickinfo" data-original-title='Settings'><i class="icon-setting"></i></a></li>-->
