@@ -81,6 +81,7 @@ html, body {height: 95.5%;}
   margin: 0;
   padding: 10px;  
 }
+
 .fitted-box a {
   color: #787878;
   font-size: 12px;
@@ -119,22 +120,21 @@ html, body {height: 95.5%;}
 }
 
 .fitted-bar {
+  font-size: 12px;
   padding: 10px 0;
   background: #FFFFFF;
-  /*border-top: 1px solid #DDDDDD;*/
   border-bottom: 1px solid #DDDDDD;
 }
 
 .fitted-summary {}
 
 .fitted-summary li {
-  -moz-box-sizing: border-box;
-  border-left: 1px solid #EEEEEE;
+  font-size: 12px;
   color: #999999;
+  -moz-box-sizing: border-box;
   display: table-cell;
   list-style-type: none;
   margin: 0;
-  text-align: center;
 }
 
 /*  Special Shinken Buttons
